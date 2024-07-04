@@ -20,20 +20,20 @@ Compromised:
 	forge test --match-test testExploit --match-contract Compromised
 
 Puppet:
-	forge test --match-test testExploit --match-contract Puppet$
+	forge test --match-test testExploit --match-contract Puppet$ -vvv
 
 PuppetV2:
-	forge test --match-test testExploit --match-contract PuppetV2
+	forge test --match-test testExploit --match-contract PuppetV2 -vvv
 
 FreeRider:
-	forge test --match-test testExploit --match-contract FreeRider
+	forge test --match-test testExploit --match-contract FreeRider -vvv
 
 Backdoor:
-	forge test --match-test testExploit --match-contract Backdoor
+	forge test --match-test testExploit --match-contract Backdoor -vvv
 
 Climber:
-	forge test --match-test testExploit --match-contract Climber
+	forge test --match-test testExploit --match-contract Climber -vvv
 
 JuniorMiners:
-	forge test --match-test testExploit --match-contract JuniorMiners
+	forge test --match-test testExploit --match-contract JuniorMiners -vvv
 
